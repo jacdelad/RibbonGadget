@@ -1,0 +1,112 @@
+$H D:\Xprofan\XProfan\Include\Messages.ph
+$H D:\Xprofan\XProfan\Include\Windows.ph
+$H Ribbon.ph
+$I Ribbon.inc
+Declare ribbon&,dll&,test$,len&
+Declare ribbon#
+Dim ribbon#,RibbonEvent
+
+SubclassProc
+if SubClassMessage(button&,514)
+SetMenuItem 1000
+endif
+'If SubclassMessage(%hWnd,~WM_SIZING) Or SubclassMessage(%hWnd,~WM_SIZE)
+'renderribbon(ribbon&)
+'EndIf
+endproc
+
+Windowstyle 31+512
+Window 1200,400
+cls External("user32","GetSysColor",15)
+dll&=UseDll("Ribbon.dll")
+'dll&=ImportDll(Left$(Par$(0),Len(Par$(0))-len(SubStr$(Par$(0),-1,"\\")))+"Ribbon.dll","")
+ribbon&=CreateRibbon(%hwnd, ~Ribbon_Color_Auto, ~Ribbon_Color_Auto, ~Ribbon_Style_Black, ~Ribbon_Flag_Autosize | ~Ribbon_Flag_Collapsible | ~Ribbon_Flag_FullHover)
+AddRibbonItem(ribbon&,1,~Ribbon_Type_Category,"Test1",~LoadImageA(%hInstance,"A",1,32,32,$20),0)
+AddRibbonItem(ribbon&,2,~Ribbon_Type_Category,"ABC",~LoadImageA(%hInstance,"A",1,32,32,$20),0)
+AddRibbonItem(ribbon&,3,~Ribbon_Type_Category,"Jucheisasa",~Ribbon_Image_None,0)
+AddRibbonItem(ribbon&,4,~Ribbon_Type_Category,"Yeehaw!",~LoadImageA(%hInstance,"A",1,32,32,$20),0)
+AddRibbonItem(ribbon&,5,~Ribbon_Type_Category,"Ziemlich langer Text",0,0)
+AddRibbonItem(ribbon&,6,~Ribbon_Type_Category,"Noch ein Element",0,0)
+AddRibbonItem(1,10,~Ribbon_Type_Group,"Gruppenname 1",0,0)
+AddRibbonItem(1,20,~Ribbon_Type_Group,"Diese Gruppe 2",0,0)
+AddRibbonItem(1,30,~Ribbon_Type_Group,"Total krasse Gruppe",0,0)
+AddRibbonItem(1,40,~Ribbon_Type_Group,"Endgeile Gruppe",0,0)
+AddRibbonItem(2,50,~Ribbon_Type_Group,"Neue Gruppe",0,0)
+AddRibbonItem(2,70,~Ribbon_Type_Group,"Andere Gruppe",0,0)
+AddRibbonItem(3,60,~Ribbon_Type_Group,"Alte Gruppe",0,0)
+AddRibbonItem(10,100,~Ribbon_Type_PushButton,"Button1",Create("hIcon",Par$(0),0),~Ribbon_Status_Checked)
+AddRibbonItem(10,101,~Ribbon_Type_Separator,"",0,0)
+AddRibbonItem(10,102,~Ribbon_Type_checkbox,"Button2 mit langem Text",Create("hIcon",Par$(0),2),0)
+AddRibbonItem(10,103,~Ribbon_Type_Button,"Button3",Create("hIcon",Par$(0),6),0)
+'AddRibbonItem(10,103,~Ribbon_Type_Button,"Button3",~LoadImageA(0,"D:\\PureBasic\\Ribbon\\Spock.bmp",0,0,0,$2010),0)
+declare popup&,button&,liste&
+popup&=LinkRibbonPopup(103,"Testfenster",300,200)
+button&=Create("Button",%hWnd,"Testbutton",10,200,100,48)
+liste&=Create("Listbox",%hWnd,0,10,256,100,100)
+MoveControlToRibbonPopup(popup&,button&,10,10)
+MoveControlToRibbonPopup(popup&,liste&,10,68)
+ResizeRibbonPopup(popup&,120,272)
+'setribbonmetric(ribbon&,~Ribbon_Metric_Roundness,0)
+AddRibbonItem(20,200,~Ribbon_Type_Button,"Button4",Create("hIcon",Par$(0),4),0)
+AddRibbonItem(30,300,~Ribbon_Type_Button,"Krasser Button",Create("hIcon",Par$(0),5),0)
+AddRibbonItem(30,301,~Ribbon_Type_Button,"Langweiliger Button",Create("hIcon",Par$(0),6),0)
+AddRibbonItem(30,302,~Ribbon_Type_Button,"Übelster Button",Create("hIcon",Par$(0),7),0)
+AddRibbonItem(40,400,~Ribbon_Type_Container,"",0,0)
+AddRibbonItem(400,401,~Ribbon_Type_Button,"Cool, das geht auch!",Create("hIcon",Par$(0),8),0)
+AddRibbonItem(400,402,~Ribbon_Type_PushButton,"Noch einer",Create("hIcon",Par$(0),9),0)
+AddRibbonItem(400,403,~Ribbon_Type_Checkbox,"Hurra, eine Checkbox!",0,0)
+AddRibbonItem(40,405,~Ribbon_Type_Separator,"",0,0)
+AddRibbonItem(40,404,~Ribbon_Type_Button,"Dummy",Create("hIcon",Par$(0),10),0)
+AddRibbonItem(50,500,~Ribbon_Type_Button,"Dummy",Create("hIcon",Par$(0),11),0)
+AddRibbonItem(60,600,~Ribbon_Type_Button,"Button4",Create("hIcon",Par$(0),12),0)
+AddRibbonItem(60,601,~Ribbon_Type_Button,"Krasser Button",Create("hIcon",Par$(0),13),0)
+AddRibbonItem(50,501,~Ribbon_Type_Button,"Langweiliger Button",Create("hIcon",Par$(0),14),0)
+AddRibbonItem(50,502,~Ribbon_Type_Button,"Übelster Button",Create("hIcon",Par$(0),15),0)
+AddRibbonItem(ribbon&,1000,~Ribbon_Type_HeadButton,"",Create("hIcon",Par$(0),16),0)
+AddRibbonItem(ribbon&,1001,~Ribbon_Type_HeadButton,"",Create("hIcon",Par$(0),17),0)
+AddRibbonItem(ribbon&,1003,~Ribbon_Type_HeadSeparator,"",0,0)
+AddRibbonItem(ribbon&,1002,~Ribbon_Type_HeadPushButton,"",Create("hIcon",Par$(0),18),0)
+AddRibbonItem(ribbon&,2002,~Ribbon_Type_RightHeadText,"Hier steht ein Text",0,0)
+AddRibbonItem(ribbon&,2000,~Ribbon_Type_RightHeadButton,"",Create("hIcon",Par$(0),19),0)
+AddRibbonItem(ribbon&,2003,~Ribbon_Type_RightHeadSeparator,"",0,0)
+AddRibbonItem(ribbon&,2001,~Ribbon_Type_RightHeadButton,"",Create("hIcon",Par$(0),19),0)
+AddRibbonItem(ribbon&,2002,~Ribbon_Type_RightHeadPushButton,"",Create("hIcon",Par$(0),19),0)
+AddRibbonItem(70,700,~Ribbon_Type_ButtonContainer,"",0,0)
+AddRibbonItem(700,701,~Ribbon_Type_Button,"",Create("hIcon",Par$(0),0),0)
+AddRibbonItem(700,702,~Ribbon_Type_Button,"",Create("hIcon",Par$(0),1),0)
+AddRibbonItem(700,706,~Ribbon_Type_Button,"",Create("hIcon",Par$(0),2),0)
+AddRibbonItem(700,705,~Ribbon_Type_Separator,"",0,0)
+AddRibbonItem(700,703,~Ribbon_Type_PushButton,"",Create("hIcon",Par$(0),3),0)
+AddRibbonItem(700,704,~Ribbon_Type_Button,"",Create("hIcon",Par$(0),4),0)
+AddRibbonItem(700,707,~Ribbon_Type_PushButton,"",Create("hIcon",Par$(0),5),0)
+AddRibbonItem(700,708,~Ribbon_Type_Button,"",Create("hIcon",Par$(0),6),0)
+'SetRibbonMetric(ribbon&,~Ribbon_Metric_Collapsed,1)
+setribbonmetric(ribbon&,~Ribbon_Metric_UpdateMode,0)
+RenderRibbon(ribbon&)
+UserMessages 10000
+AddString(liste&,"Hallo")
+addpopuptext(popup&,0,0,"Test")
+movepopuptext(popup&,1,10,170)
+setactivewindow(%hWnd)
+Subclass %hWnd,1'SubClassing wieder einschalten, wenn das AutoSize-Flag deaktiviert wird
+subclass button&,1
+While 1
+waitinput
+if MenuItem(1000)
+Messagebox("button& wurde gedrückt!","",0)
+setactivewindow(GetRibbonPopupHandle(popup&))
+endif
+If %umessage=~Ribbon_StandardMessage
+While CheckRibbonActivity(ribbon#)
+if ribbon#.event&=~Ribbon_Event_LeftClick
+WindowTitle Str$(&gettickcount)+" + "+Str$(ribbon#.id&)+" + "+Str$(ribbon#.event&)
+endif
+EndWhile
+elseif %Key=2
+Break
+EndIf
+EndWhile
+RemoveRibbon(ribbon&)
+FreeDLL dll&
+Dispose ribbon#
+end
