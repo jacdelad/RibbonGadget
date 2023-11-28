@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://www.purebasic.com/namespace" version="1.0" creator="PureBasic 6.03 LTS (Windows - x64)">
+  <section name="config">
+    <options closefiles="1" openmode="1" name="RibbonGadget"/>
+    <buildwindow autoclose="1"/>
+  </section>
+  <section name="data">
+    <explorer view="..\PureBasic32\Examples\" pattern="0"/>
+    <log show="1"/>
+    <lastopen date="2023-11-28 19:14" user="jacob.liebeck" host="NER008082"/>
+  </section>
+  <section name="files">
+    <file name="RibbonGadget.pbi">
+      <config load="0" scan="1" panel="1" warn="0" lastopen="1" sortindex="1" panelstate="+"/>
+    </file>
+  </section>
+  <section name="targets">
+    <target name="Standard-Ziel" enabled="1" default="1">
+      <inputfile value="RibbonGadget.pbi"/>
+      <outputfile value="Ribbon.exe"/>
+      <compiler version="PureBasic 6.03 LTS (Windows - x64)"/>
+      <executable value="Ribbon.exe"/>
+      <options asm="1" unicode="1" thread="1" xpskin="1" onerror="1" debug="1" optimizer="1"/>
+      <temporaryexe value="source"/>
+      <icon enable="0">Emey87-Trainee-Sofa.ico</icon>
+      <format exe="default" cpu="1"/>
+      <compilecount enable="1" value="3598"/>
+      <buildcount enable="1" value="627"/>
+    </target>
+    <target name="Standard-Ziel C" enabled="0" default="0">
+      <inputfile value="RibbonGadget.pbi"/>
+      <outputfile value="Ribbon_c.exe"/>
+      <compiler version="PureBasic 6.00 Alpha 5 - C Backend (Windows - x64)"/>
+      <executable value="Ribbon_c.exe"/>
+      <options asm="1" unicode="1" thread="1" xpskin="1" onerror="1" debug="1" optimizer="1"/>
+      <temporaryexe value="source"/>
+      <subsystem value="OpenGL"/>
+      <icon enable="0">Emey87-Trainee-Sofa.ico</icon>
+      <format exe="default" cpu="1"/>
+      <compilecount enable="1" value="2790"/>
+      <buildcount enable="1" value="623"/>
+    </target>
+    <target name="DLL x32" enabled="1" default="0">
+      <inputfile value="RibbonGadget.pbi"/>
+      <outputfile value="Ribbon.dll"/>
+      <compiler version="PureBasic 6.00 Alpha 5 (Windows - x86)"/>
+      <executable value="Ribbon.dll"/>
+      <options asm="1" unicode="1" thread="1" xpskin="1" onerror="1" debug="1" optimizer="1"/>
+      <purifier enable="1"/>
+      <temporaryexe value="source"/>
+      <icon enable="0">Emey87-Trainee-Sofa.ico</icon>
+      <format exe="dll" cpu="1"/>
+      <compilecount enable="1" value="2277"/>
+      <buildcount enable="1" value="584"/>
+    </target>
+    <target name="DLL x32 C" enabled="1" default="0">
+      <inputfile value="RibbonGadget.pbi"/>
+      <outputfile value="Ribbon_c.dll"/>
+      <compiler version="PureBasic 6.00 Alpha 5 - C Backend (Windows - x86)"/>
+      <executable value="Ribbon_c.dll"/>
+      <options asm="1" unicode="1" thread="1" onerror="1" debug="1" optimizer="1"/>
+      <purifier enable="1"/>
+      <temporaryexe value="source"/>
+      <icon enable="0">Emey87-Trainee-Sofa.ico</icon>
+      <format exe="dll" cpu="1"/>
+      <compilecount enable="1" value="2121"/>
+      <buildcount enable="1" value="428"/>
+    </target>
+    <target name="DLL x64" enabled="1" default="0">
+      <inputfile value="RibbonGadget.pbi"/>
+      <outputfile value="Ribbon_x64.dll"/>
+      <compiler version="PureBasic 6.00 Alpha 5 (Windows - x64)"/>
+      <executable value="Ribbon_x64.dll"/>
+      <options asm="1" unicode="1" thread="1" xpskin="1" onerror="1" debug="1" optimizer="1"/>
+      <purifier enable="1"/>
+      <temporaryexe value="source"/>
+      <icon enable="0">Emey87-Trainee-Sofa.ico</icon>
+      <format exe="dll" cpu="1"/>
+      <compilecount enable="1" value="2267"/>
+      <buildcount enable="1" value="574"/>
+    </target>
+    <target name="DLL x64 C" enabled="0" default="0">
+      <inputfile value="RibbonGadget.pbi"/>
+      <outputfile value="Ribbon_x64_c.dll"/>
+      <compiler version="PureBasic 6.00 Alpha 5 - C Backend (Windows - x64)"/>
+      <executable value="Ribbon_x64_c.dll"/>
+      <options asm="1" unicode="1" thread="1" onerror="1" debug="1" optimizer="1"/>
+      <purifier enable="1"/>
+      <temporaryexe value="source"/>
+      <icon enable="0">Emey87-Trainee-Sofa.ico</icon>
+      <format exe="dll" cpu="1"/>
+      <compilecount enable="1" value="2263"/>
+      <buildcount enable="1" value="570"/>
+    </target>
+  </section>
+</project>
